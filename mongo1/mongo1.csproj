@@ -1,0 +1,1445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BF80CFB-D34C-4347-A65F-D31084EBEFCD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>mongo1</RootNamespace>
+    <AssemblyName>mongo1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Api.Maps.Service, Version=0.9.2.40292, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Api.Maps.Service.1.1.4\lib\net45\Google.Api.Maps.Service.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GoogleApi, Version=3.6.8.0, Culture=neutral, PublicKeyToken=781851e053b06e74, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\GoogleApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Helpers.1.0.0\lib\Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB, Version=0.90.0.1, Culture=neutral, PublicKeyToken=f61bd00ba2535278, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoGridfs.1.0.3\lib\net40\MongoDB.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.262.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ideagen.MongoDB.Bson.1.262.9\lib\net45\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.262.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ideagen.MongoDB.Driver.1.262.9\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=1.262.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ideagen.MongoDB.Driver.Core.1.262.9\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Legacy, Version=1.262.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ideagen.LegacyMongoDriver.1.262.9\lib\net45\MongoDB.Driver.Legacy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.GridFS, Version=0.90.0.1, Culture=neutral, PublicKeyToken=f61bd00ba2535278, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoGridfs.1.0.3\lib\net40\MongoDB.GridFS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="booking.cs" />
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FileStream.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="student.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report2.rdlc" />
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\booking.datasource" />
+    <None Include="Properties\DataSources\DnsClient.DnsQueryExtensions.datasource" />
+    <None Include="Properties\DataSources\DnsClient.DnsQueryResponse.datasource" />
+    <None Include="Properties\DataSources\DnsClient.DnsQuestion.datasource" />
+    <None Include="Properties\DataSources\DnsClient.DnsResponseException.datasource" />
+    <None Include="Properties\DataSources\DnsClient.DnsResponseHeader.datasource" />
+    <None Include="Properties\DataSources\DnsClient.DnsString.datasource" />
+    <None Include="Properties\DataSources\DnsClient.IDnsQuery.datasource" />
+    <None Include="Properties\DataSources\DnsClient.IDnsQueryResponse.datasource" />
+    <None Include="Properties\DataSources\DnsClient.ILookupClient.datasource" />
+    <None Include="Properties\DataSources\DnsClient.LookupClient.datasource" />
+    <None Include="Properties\DataSources\DnsClient.NameServer.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.AaaaRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.AddressRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.AfsDbRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.ARecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.CaaRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.CNameRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.DnsResourceRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.EmptyRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.HInfoRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.MbRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.MgRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.MInfoRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.MrRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.MxRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.NsRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.NullRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.PtrRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.ResourceRecordInfo.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.RpRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.SoaRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.SrvRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.TxtRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.UriRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.Protocol.WksRecord.datasource" />
+    <None Include="Properties\DataSources\DnsClient.ServiceHostEntry.datasource" />
+    <None Include="Properties\DataSources\DnsClient.StaticLog.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\Form2.datasource" />
+    <None Include="Properties\DataSources\Form3.datasource" />
+    <None Include="Properties\DataSources\mongo1.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\mongo1.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonArray.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonBinaryData.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonBoolean.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonConstants.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonDateTime.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonDecimal128.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonDefaults.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonDocument.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonDocumentWrapper.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonDouble.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonElement.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonExtensionMethods.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonInt32.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonInt64.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonInternalException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonJavaScript.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonJavaScriptWithScope.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonMaxKey.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonMinKey.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonNull.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonObjectId.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonRegularExpression.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonSerializationException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonString.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonSymbol.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonSymbolTable.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonTimestamp.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonTypeMapper.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonTypeMapperOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonUndefined.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonUtils.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.BsonValue.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Decimal128.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.DuplicateBsonMemberMapAttributeException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.GuidConverter.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IConvertibleToBsonDocument.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.ICustomBsonTypeMapper.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonBinaryReader.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonBinaryReaderBookmark.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonBinaryReaderSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonBinaryWriter.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonBinaryWriterSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonChunkPool.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonDocumentReader.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonDocumentReaderBookmark.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonDocumentReaderSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonDocumentWriter.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonDocumentWriterSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonReader.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonReaderBookmark.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonReaderSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonStream.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonStreamAdapter.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonStreamExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonWriter.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.BsonWriterSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.ByteArrayBuffer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.ByteArrayChunk.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.ByteBufferFactory.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.ByteBufferSlice.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.ByteBufferStream.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.DateTimeJsonToken.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.DoubleJsonToken.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.IBsonChunk.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.IBsonChunkSource.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.IBsonReader.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.IBsonReaderExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.IBsonWriter.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.IBsonWriterExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.IByteBuffer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.IElementNameValidator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.INameDecoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.InputBufferChunkSource.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.Int32JsonToken.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.Int64JsonToken.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.JsonConvert.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.JsonReader.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.JsonReaderBookmark.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.JsonReaderSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.JsonToken.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.JsonWriter.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.JsonWriterSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.MultiChunkBuffer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.NoOpElementNameValidator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.ObjectIdJsonToken.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.OutputBufferChunkSource.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.RegularExpressionJsonToken.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.SingleChunkBuffer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.StringJsonToken.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.Utf8Encodings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.Utf8Helper.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.Utf8NameDecoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.IO.WrappingBsonWriter.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.LazyBsonArray.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.LazyBsonDocument.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.MaterializedOnDemandBsonArray.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.MaterializedOnDemandBsonDocument.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.ObjectId.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.RawBsonArray.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.RawBsonDocument.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.AttributedSerializationProvider.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonConstructorAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonDateTimeOptionsAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonDefaultValueAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonDictionaryOptionsAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonDiscriminatorAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonElementAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonExtraElementsAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonFactoryMethodAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonIdAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonIgnoreAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonIgnoreExtraElementsAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonIgnoreIfDefaultAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonIgnoreIfNullAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonKnownTypesAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonNoIdAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonRepresentationAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonRequiredAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonSerializationOptionsAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonSerializerAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Attributes.BsonTimeSpanOptionsAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonClassMap.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonCreatorMap.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonDeserializationArgs.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonDeserializationContext+Builder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonDeserializationContext.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonDocumentBackedClass.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonMemberMap.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonMemberMapAttributeUsageAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonObjectModelSerializationProvider.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonSerializationArgs.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonSerializationContext+Builder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonSerializationContext.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonSerializationInfo.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonSerializationProviderBase.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.BsonSerializerRegistry.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.CollectionsSerializationProvider.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.AttributeConventionPack.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.CamelCaseElementNameConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ConventionBase.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ConventionPack.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ConventionRegistry.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ConventionRunner.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.DefaultConventionPack.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.DelegateClassMapConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.DelegateMemberMapConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.DelegatePostProcessingConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.EnumRepresentationConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.HierarchicalDiscriminatorConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.IClassMapConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.IConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.IConventionPack.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ICreatorMapConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.IDiscriminatorConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.IgnoreExtraElementsConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.IgnoreIfDefaultConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.IgnoreIfNullConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.IMemberMapConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ImmutableTypeClassMapConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.IPostProcessingConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.LookupIdGeneratorConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.MemberDefaultValueConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.MemberNameElementNameConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.NamedExtraElementsMemberConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.NamedIdMemberConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.NamedParameterCreatorMapConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.NoIdMemberConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ObjectDiscriminatorConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ReadWriteMemberFinderConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ResetClassMapConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ResetMemberMapsConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.ScalarDiscriminatorConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.StandardDiscriminatorConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Conventions.StringObjectIdIdGeneratorConvention.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.CreatorMapDelegateCompiler.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.DiscriminatedInterfaceSerializationProvider.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.ExpressionVisitor.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonArraySerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonClassMapAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonCreatorMapAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonDictionarySerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonDocumentSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonIdProvider.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonMemberMapAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonPolymorphicSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonPostProcessingAttribute.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonSerializationProvider.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonSerializerExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IBsonSerializerRegistry.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IChildSerializerConfigurable.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IdGenerators.AscendingGuidGenerator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IdGenerators.BsonBinaryDataGuidGenerator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IdGenerators.BsonObjectIdGenerator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IdGenerators.CombGuidGenerator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IdGenerators.GuidGenerator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IdGenerators.NullIdChecker.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IdGenerators.ObjectIdGenerator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IdGenerators.StringObjectIdGenerator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IDictionaryRepresentationConfigurable.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IIdGenerator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IRegistryAwareBsonSerializationProvider.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IRepresentationConfigurable.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.IRepresentationConverterConfigurable.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Options.RepresentationConverter.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.PrimitiveSerializationProvider.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BitArraySerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BooleanSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonArraySerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonBinaryDataSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonBooleanSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonDateTimeSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonDecimal128Serializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonDocumentSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonDocumentWrapperSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonDoubleSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonInt32Serializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonInt64Serializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonJavaScriptSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonJavaScriptWithScopeSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonMaxKeySerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonMinKeySerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonNullSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonObjectIdSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonRegularExpressionSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonStringSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonSymbolSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonTimestampSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonUndefinedSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.BsonValueSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.ByteArraySerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.ByteSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.CharSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.CultureInfoSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.DateTimeOffsetSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.DateTimeSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.Decimal128Serializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.DecimalSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.DoubleSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.ExpandoObjectSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.GuidSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.Int16Serializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.Int32Serializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.Int64Serializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.IPAddressSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.IPEndPointSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.LazyBsonArraySerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.LazyBsonDocumentSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.ObjectIdSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.ObjectSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.PartiallyRawBsonDocumentSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.QueueSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.RawBsonArraySerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.RawBsonDocumentSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.SByteSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.SerializerHelper+Member.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.SerializerHelper.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.SingleSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.StackSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.StringSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.TimeSpanSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.UInt16Serializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.UInt32Serializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.UInt64Serializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.UriSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.Serializers.VersionSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.TypeMappingSerializationProvider.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.Serialization.TypeNameDiscriminator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Bson.TruncationException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.AggregateBucketAutoGranularity.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.AggregateBucketAutoOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.AggregateCountResult.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.AggregateFacet.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.AggregateFacetResult.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.AggregateFacetResults.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.AggregateOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ArrayFilterDefinition.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.BulkWriteError.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.BulkWriteOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.BulkWriteResult.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.BulkWriteUpsert.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ChangeStreamOperationTypeSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ChangeStreamOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ChangeStreamStageOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ChangeStreamUpdateDescription.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ChangeStreamUpdateDescriptionSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ClientSessionOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ClusterRegistry.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Collation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.CollectionNamespace.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.DefaultAuthenticator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.GssapiAuthenticator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.IAuthenticator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.MongoDBCRAuthenticator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.MongoDBX509Authenticator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.PlainAuthenticator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.SaslAuthenticator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.ScramSha1Authenticator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.ScramSha256Authenticator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.ScramShaAuthenticator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.Sspi.Win32Exception.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.UsernamePasswordCredential.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Authentication.Vendored.HashAlgorithmName.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.ChannelReadBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.ChannelReadWriteBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.ChannelSourceHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.ChannelSourceReadWriteBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.CoreSession.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.CoreSessionHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.CoreSessionOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.CoreTransaction.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IChannel.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IChannelHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IChannelSource.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IChannelSourceHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.ICoreSession.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.ICoreSessionHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IReadBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IReadBindingHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IReadWriteBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IReadWriteBindingHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IWriteBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.IWriteBindingHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.NoCoreSession.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.ReadBindingHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.ReadPreferenceBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.ReadWriteBindingHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.ServerChannelSource.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.SingleServerReadBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.SingleServerReadWriteBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.SplitReadWriteBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.WrappingCoreSession.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Bindings.WritableServerBinding.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ClusterDescription.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ClusterDescriptionChangedEventArgs.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ClusterId.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ElectionId.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ICluster.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.IClusterClock.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.IClusterFactory.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ReplicaSetConfig.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ServerSelectors.CompositeServerSelector.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ServerSelectors.DelegateServerSelector.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ServerSelectors.EndPointServerSelector.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ServerSelectors.IServerSelector.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ServerSelectors.LatencyLimitingServerSelector.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ServerSelectors.RandomServerSelector.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ServerSelectors.ReadPreferenceServerSelector.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Clusters.ServerSelectors.WritableServerSelector.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Configuration.ClusterBuilder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Configuration.ClusterBuilderExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Configuration.ClusterSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Configuration.ConnectionPoolSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Configuration.ConnectionSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Configuration.ConnectionString.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Configuration.ServerSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Configuration.SslStreamSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Configuration.TcpStreamSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.ConnectionPools.IConnectionPool.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.ConnectionPools.IConnectionPoolFactory.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Connections.BuildInfoResult.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Connections.ConnectionDescription.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Connections.ConnectionId.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Connections.IConnection.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Connections.IConnectionFactory.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Connections.IConnectionHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Connections.IsMasterResult.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Connections.IStreamFactory.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterAddedServerEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterAddingServerEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterClosedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterClosingEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterDescriptionChangedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterOpenedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterOpeningEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterRemovedServerEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterRemovingServerEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterSelectedServerEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterSelectingServerEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ClusterSelectingServerFailedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.CommandFailedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.CommandStartedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.CommandSucceededEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionClosedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionClosingEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionFailedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionOpenedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionOpeningEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionOpeningFailedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolAddedConnectionEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolAddingConnectionEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolCheckedInConnectionEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolCheckedOutConnectionEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolCheckingInConnectionEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolCheckingOutConnectionEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolCheckingOutConnectionFailedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolClosedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolClosingEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolOpenedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolOpeningEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolRemovedConnectionEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionPoolRemovingConnectionEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionReceivedMessageEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionReceivingMessageEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionReceivingMessageFailedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionSendingMessagesEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionSendingMessagesFailedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ConnectionSentMessagesEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.Diagnostics.PerformanceCounterEventSubscriber.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.Diagnostics.TraceSourceCommandEventSubscriber.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.Diagnostics.TraceSourceEventSubscriber.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.IEventSubscriber.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ReflectionEventSubscriber.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ServerClosedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ServerClosingEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ServerDescriptionChangedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ServerHeartbeatFailedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ServerHeartbeatStartedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ServerHeartbeatSucceededEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ServerOpenedEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Events.ServerOpeningEvent.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Misc.ArrayFiltersFeature.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Misc.CollationFeature.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Misc.CommandsThatWriteAcceptWriteConcernFeature.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Misc.EndPointHelper.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Misc.Ensure.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Misc.Feature.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Misc.ReadConcernFeature.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Misc.SemanticVersion.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Misc.SemaphoreSlimRequest.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.AbortTransactionOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.AggregateExplainOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.AggregateToCollectionOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.BulkMixedWriteOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.BulkWriteConcernError.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.BulkWriteOperationError.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.BulkWriteOperationResult+Acknowledged.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.BulkWriteOperationResult+Unacknowledged.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.BulkWriteOperationResult.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.BulkWriteOperationUpsert.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.CommitTransactionOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.CountDocumentsOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.CountOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.CreateCollectionOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.CreateIndexesOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.CreateIndexesUsingCommandOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.CreateIndexesUsingInsertOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.CreateIndexRequest.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.CreateViewOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.DatabaseExistsOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.DeleteOpcodeOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.DeleteRequest.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.DropCollectionOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.DropDatabaseOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.DropIndexOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ElementNameValidators.CollectionElementNameValidator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ElementNameValidators.ElementNameValidatorFactory.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ElementNameValidators.UpdateElementNameValidator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ElementNameValidators.UpdateOrReplacementElementNameValidator.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.EndTransactionOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.EvalOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ExplainOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.IndexNameHelper.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.InsertRequest.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.IOperationClock.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ListCollectionsOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ListCollectionsUsingCommandOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ListCollectionsUsingQueryOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ListDatabasesOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ListIndexesOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ListIndexesUsingCommandOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ListIndexesUsingQueryOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.MapReduceLegacyOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.MapReduceOperationBase.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.MapReduceOutputToCollectionOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.MongoBulkWriteOperationException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.NoOperationClock.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.OperationExtensionMethods.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.PingOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.ReIndexOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.RenameCollectionOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.RetryableDeleteCommandOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.RetryableUpdateCommandOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.RetryableWriteCommandOperationBase.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.RetryableWriteContext.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.UpdateOpcodeOperation.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.UpdateRequest.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Operations.WriteRequest.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Servers.IClusterableServer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Servers.IClusterableServerFactory.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Servers.IServer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Servers.ServerDescription.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Servers.ServerDescriptionChangedEventArgs.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Servers.ServerId.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.Servers.ServerTypeExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.CommandMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.CommandMessageSection.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.CommandRequestMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.CommandResponseMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.DeleteMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders.BinaryMessageEncoderFactory.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders.CommandMessageBinaryEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders.CommandRequestMessageBinaryEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders.CommandResponseMessageBinaryEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders.DeleteMessageBinaryEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders.GetMoreMessageBinaryEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders.KillCursorsMessageBinaryEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders.MessageBinaryEncoderBase.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders.QueryMessageBinaryEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.BinaryEncoders.UpdateMessageBinaryEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.CommandResponseMessageEncoderSelector.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.IEncodableMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.IMessageEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.IMessageEncoderFactory.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.IMessageEncoderPostProcessor.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.IMessageEncoderSelector.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders.CommandMessageJsonEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders.CommandRequestMessageJsonEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders.CommandResponseMessageJsonEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders.DeleteMessageJsonEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders.GetMoreMessageJsonEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders.JsonMessageEncoderFactory.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders.KillCursorsMessageJsonEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders.MessageJsonEncoderBase.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders.QueryMessageJsonEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.JsonEncoders.UpdateMessageJsonEncoder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.MessageEncoderSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Encoders.MessageEncoderSettingsName.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.GetMoreMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.KillCursorsMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.MongoDBMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.QueryMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.RequestMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.ResponseMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Type0CommandMessageSection.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.Type1CommandMessageSection.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Core.WireProtocol.Messages.UpdateMessage.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.CountOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.CreateCollectionOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.CreateIndexOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.CreateManyIndexesOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.CreateOneIndexOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.DatabaseNamespace.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.DeleteOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.DeleteResult+Acknowledged.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.DeleteResult+Unacknowledged.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.DeleteResult.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.DistinctOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.DropIndexOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.EstimatedDocumentCountOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ExpressionTranslationOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ExternalEvidence.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.FindOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.FindOptionsBase.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJson.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJson2DCoordinates.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJson2DGeographicCoordinates.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJson2DProjectedCoordinates.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJson3DCoordinates.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJson3DGeographicCoordinates.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJson3DProjectedCoordinates.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJsonCoordinateReferenceSystem.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJsonCoordinates.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJsonLinkedCoordinateReferenceSystem.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.GeoJsonNamedCoordinateReferenceSystem.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.Serializers.GeoJson2DCoordinatesSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.Serializers.GeoJson2DGeographicCoordinatesSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.Serializers.GeoJson2DProjectedCoordinatesSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.Serializers.GeoJson3DCoordinatesSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.Serializers.GeoJson3DGeographicCoordinatesSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.Serializers.GeoJson3DProjectedCoordinatesSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.Serializers.GeoJsonCoordinateReferenceSystemSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.Serializers.GeoJsonCoordinatesSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.Serializers.GeoJsonLinkedCoordinateReferenceSystemSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.GeoJsonObjectModel.Serializers.GeoJsonNamedCoordinateReferenceSystemSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IAggregateFluentExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IAsyncCursorExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IAsyncCursorSourceExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IClientSession.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IClientSessionHandle.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ICoreServerSession.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IFindFluentExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IMongoClient.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IMongoClientExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IMongoCollectionExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IMongoDatabase.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IMongoDatabaseExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IndexKeysDefinitionExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IndexOptionDefaults.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.InsertManyOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.InsertOneOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IPipelineStageDefinition.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IRenderedPipelineStageDefinition.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.IServerSession.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Linq.IMongoQueryable.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Linq.LinqExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Linq.MongoEnumerable.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Linq.MongoQueryable.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Linq.QueryableExecutionModel.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ListCollectionNamesOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ListCollectionsOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ListDatabasesOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MapReduceOutputOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoAuthenticationException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoBulkWriteException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoClient.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoClientBase.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoClientException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoClientSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoCollectionSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoCommandException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoConfigurationException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoConnectionClosedException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoConnectionException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoCredential.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoCursorNotFoundException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoDatabaseBase.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoDatabaseSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoDBRef.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoDBRefSerializer.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoDefaults.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoDuplicateKeyException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoExecutionTimeoutException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoExternalIdentity.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoIdentity.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoIdentityEvidence.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoIncompatibleDriverException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoInternalException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoInternalIdentity.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoNodeIsRecoveringException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoNotPrimaryException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoQueryException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoServerAddress.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoServerException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoUrl.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoUrlBuilder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoUtils.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoWaitQueueFullException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoWriteConcernException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoWriteException.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.MongoX509Identity.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Optional.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.PasswordEvidence.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.PipelineDefinitionBuilder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.PipelineStageDefinitionBuilder.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ProjectionDefinitionExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ReadConcern.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ReadPreference.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.RenameCollectionOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.RenderedFieldDefinition.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ReplaceOneResult+Acknowledged.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ReplaceOneResult+Unacknowledged.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.ReplaceOneResult.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.SortDefinitionExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.SslSettings.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.Tag.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.TagSet.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.TextSearchOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.TransactionOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.UpdateDefinitionExtensions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.UpdateOptions.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.UpdateResult+Acknowledged.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.UpdateResult+Unacknowledged.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.UpdateResult.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.WriteConcern+WCount.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.WriteConcern+WMode.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.WriteConcern+WValue.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.WriteConcern.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.WriteConcernError.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.WriteConcernResult.datasource" />
+    <None Include="Properties\DataSources\MongoDB.Driver.WriteError.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\student.datasource" />
+    <None Include="Properties\DataSources\System.ComponentModel.DataAnnotations.Schema.IndexAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.BasicCommandTreeVisitor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.BasicExpressionVisitor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbAggregate.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbAndExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbApplyExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbArithmeticExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbBinaryExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbCaseExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbCastExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbCommandTree.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbComparisonExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbConstantExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbCrossJoinExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbDeleteCommandTree.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbDerefExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbDistinctExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbElementExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbEntityRefExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbExceptExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbExpressionBinding.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbExpressionRebinder.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbExpressionVisitor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbFilterExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbFunctionAggregate.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbFunctionCommandTree.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbFunctionExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbGroupAggregate.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbGroupByExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbGroupExpressionBinding.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbInExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbInsertCommandTree.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbIntersectExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbIsEmptyExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbIsNullExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbIsOfExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbJoinExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbLambda.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbLambdaExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbLikeExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbLimitExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbModificationClause.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbModificationCommandTree.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbNewInstanceExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbNotExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbNullExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbOfTypeExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbOrExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbParameterReferenceExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbProjectExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbPropertyExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbQuantifierExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbQueryCommandTree.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbRefExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbRefKeyExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbRelationshipNavigationExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbScanExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbSetClause.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbSkipExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbSortClause.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbSortExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbTreatExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbUnaryExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbUnionAllExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbUpdateCommandTree.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DbVariableReferenceExpression.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.DefaultExpressionVisitor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.DbExpressionBuilder.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.EdmFunctions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.Row.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.Spatial.SpatialEdmFunctions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.DataRecordInfo.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.DbCommandDefinition.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.DbProviderManifest.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.DbProviderServices.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.DbXmlEnabledProviderManifest.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.EntityRecordInfo.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.EntitySql.EntitySqlParser.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.EntitySql.FunctionDefinition.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.EntitySql.ParseResult.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Common.FieldMetadata.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityClient.EntityCommand.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityClient.EntityConnection.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityClient.EntityConnectionStringBuilder.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityClient.EntityDataReader.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityClient.EntityParameter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityClient.EntityParameterCollection.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityClient.EntityProviderFactory.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityClient.EntityTransaction.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityCommandCompilationException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityCommandExecutionException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityKey.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntityKeyMember.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.EntitySqlException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.IExtendedDataRecord.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.InvalidCommandTreeException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.AssociationSetMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.AssociationSetModificationFunctionMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.AssociationTypeMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.ComplexPropertyMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.ComplexTypeMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.ConditionPropertyMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.EndPropertyMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.EntityContainerMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.EntitySetBaseMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.EntitySetMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.EntityTypeMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.EntityTypeModificationFunctionMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.EntityViewContainer.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.EntityViewGenerationAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportComplexTypeMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportEntityTypeMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportEntityTypeMappingCondition.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportEntityTypeMappingConditionIsNull.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportEntityTypeMappingConditionValue.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportMappingComposable.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportMappingNonComposable.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportResultMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportReturnTypePropertyMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportReturnTypeScalarPropertyMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.FunctionImportStructuralTypeMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.IsNullConditionMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.MappingBase.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.MappingFragment.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.MappingItem.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.MappingItemCollection.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.ModificationFunctionMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.ModificationFunctionMemberPath.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.ModificationFunctionParameterBinding.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.ModificationFunctionResultBinding.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.PropertyMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.ScalarPropertyMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.StorageMappingItemCollection.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.StructuralTypeMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.TypeMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Mapping.ValueConditionMapping.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.MappingException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.AssociationEndMember.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.AssociationSet.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.AssociationSetEnd.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.AssociationType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.CollectionType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.ComplexType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.CsdlSerializer.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.DataModelErrorEventArgs.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.DbModelExtensions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.Documentation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EdmError.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EdmFunction.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EdmFunctionPayload.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EdmItemCollection.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EdmMember.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EdmModel.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EdmProperty.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EdmSchemaError.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EdmType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EntityContainer.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EntitySet.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EntitySetBase.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EntityType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EntityTypeBase.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EnumMember.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.EnumType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.Facet.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.FacetDescription.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.FunctionParameter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.GlobalItem.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.IEdmModelAdapter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.ItemCollection.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.MetadataItem.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.MetadataProperty.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.MetadataWorkspace.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.NavigationProperty.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.ObjectItemCollection.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.PrimitiveType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.ReferentialConstraint.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.RefType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.RelationshipEndMember.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.RelationshipSet.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.RelationshipType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.RowType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.SimpleType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.SsdlSerializer.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.StoreItemCollection.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.StructuralType.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Metadata.Edm.TypeUsage.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.MetadataException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.ObjectNotFoundException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.CompiledQuery.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.CurrentValueRecord.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.ComplexObject.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmComplexPropertyAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmComplexTypeAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmEntityTypeAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmEnumTypeAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmFunctionAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmPropertyAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmRelationshipAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmScalarPropertyAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmSchemaAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EdmTypeAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EntityObject.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.EntityReference.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.IEntityChangeTracker.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.IEntityWithChangeTracker.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.IEntityWithKey.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.IEntityWithRelationships.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.IRelatedEnd.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DataClasses.StructuralObject.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.DbUpdatableDataRecord.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.EntityFunctions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ExecutionOptions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ObjectContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ObjectContextOptions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ObjectMaterializedEventArgs.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ObjectMaterializedEventHandler.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ObjectParameter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ObjectParameterCollection.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ObjectQuery.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ObjectResult.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ObjectStateEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ObjectStateManager.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.OriginalValueRecord.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.Objects.ProxyDataContractResolver.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.OptimisticConcurrencyException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.PropertyConstraintException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.ProviderIncompatibleException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Core.UpdateException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Database.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbConfigurationTypeAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbContextTransaction.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbFunctionAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbFunctions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbModelBuilder.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbModelBuilderVersionAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.DbSet.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Annotations.AnnotationCodeGenerator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Annotations.AnnotationValues.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Annotations.CompatibilityResult.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Annotations.IMergeableAnnotation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Annotations.IndexAnnotation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Annotations.IndexAnnotationSerializer.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.CommitFailedException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.CommitFailureHandler.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbChangeTracker.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbCollectionEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbCompiledModel.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbComplexPropertyEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbConnectionInfo.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbContextConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbContextInfo.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbEntityEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbExecutionStrategy.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbMemberEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbModel.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbPropertyEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbPropertyValues.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbProviderInfo.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbQuery.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbRawSqlQuery.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbReferenceEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbSqlQuery.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbUpdateConcurrencyException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DbUpdateException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DefaultExecutionStrategy.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DefaultManifestTokenResolver.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationLoadedEventArgs.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DependencyResolution.IDbDependencyResolver.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.DependencyResolution.TransactionHandlerResolver.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Design.AppConfigReader.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.EdmMetadata.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.EdmxWriter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.ExecutionStrategyKey.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbAsyncEnumerable.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbAsyncEnumerator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbAsyncQueryProvider.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbConnectionFactory.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbExecutionStrategy.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbModelCacheKey.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbModelCacheKeyProvider.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IDbProviderFactoryResolver.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IManifestTokenResolver.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IMetadataAnnotationSerializer.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IncludeMetadataConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.BeginTransactionInterceptionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DatabaseLogFormatter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DatabaseLogger.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbCommandInterceptor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbCommandTreeInterceptionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbConfigurationInterceptionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbConnectionInterceptionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbDispatchers.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbInterception.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbInterceptionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbTransactionDispatcher.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.EnlistTransactionInterceptionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.IDbCommandInterceptor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.IDbCommandTreeInterceptor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.IDbConfigurationInterceptor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.IDbConnectionInterceptor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.IDbInterceptor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Interception.MutableInterceptionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IObjectContextAdapter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.IProviderInvariantName.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.LocalDbConnectionFactory.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.MappingViews.DbMappingView.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.MappingViews.DbMappingViewCache.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.MappingViews.DbMappingViewCacheFactory.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.MappingViews.DbMappingViewCacheTypeAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.ModelContainerConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.ModelNamespaceConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.ObjectReferenceEqualityComparer.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Pluralization.CustomPluralizationEntry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Pluralization.EnglishPluralizationService.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.Pluralization.IPluralizationService.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.RetryLimitExceededException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.SqlCeConnectionFactory.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.SqlConnectionFactory.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.SuppressDbSetInitializationAttribute.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.TableExistenceChecker.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.TransactionContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.TransactionHandler.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.TransactionRow.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Infrastructure.UnintentionalCodeFirstException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Builders.ColumnBuilder.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Builders.ParameterBuilder.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.DbMigration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.DbMigrationsConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.DbMigrator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.DbSetMigrationsExtensions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Design.CSharpMigrationCodeGenerator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Design.MigrationCodeGenerator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Design.MigrationScaffolder.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Design.ScaffoldedMigration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Design.ToolingFacade.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Design.VisualBasicMigrationCodeGenerator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.History.HistoryContext.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.History.HistoryRow.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Infrastructure.AutomaticDataLossException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Infrastructure.AutomaticMigrationsDisabledException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Infrastructure.IDbMigration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Infrastructure.MigrationsException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Infrastructure.MigrationsLogger.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Infrastructure.MigrationsPendingException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Infrastructure.MigratorBase.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Infrastructure.MigratorLoggingDecorator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Infrastructure.MigratorScriptingDecorator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.AddColumnOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.AddForeignKeyOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.AddPrimaryKeyOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.AlterColumnOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.AlterProcedureOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.AlterTableOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.ColumnModel.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.CreateIndexOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.CreateProcedureOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.CreateTableOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.DropColumnOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.DropForeignKeyOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.DropIndexOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.DropPrimaryKeyOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.DropProcedureOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.DropTableOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.ForeignKeyOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.HistoryOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.IndexOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.MigrationOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.MoveProcedureOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.MoveTableOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.NotSupportedOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.ParameterModel.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.PrimaryKeyOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.ProcedureOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.PropertyModel.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.RenameColumnOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.RenameIndexOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.RenameProcedureOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.RenameTableOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.SqlOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.UpdateDatabaseOperation+Migration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Model.UpdateDatabaseOperation.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Sql.MigrationSqlGenerator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Sql.MigrationStatement.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Migrations.Utilities.IndentedTextWriter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.AssociationMappingConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.BinaryPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.CascadableNavigationPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConfigurationRegistrar.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionDeleteModificationStoredProcedureConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionInsertModificationStoredProcedureConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionModificationStoredProcedureConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionModificationStoredProceduresConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionPrimitivePropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionsConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionTypeConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ConventionUpdateModificationStoredProcedureConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.DateTimePropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.DecimalPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ForeignKeyAssociationMappingConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ForeignKeyNavigationPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.LengthColumnConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.LengthPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ManyToManyAssociationMappingConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ModificationStoredProcedureConfigurationBase.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.NotNullConditionConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.PrimitiveColumnConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.PrimitivePropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.PropertyConventionConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.PropertyMappingConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.StringColumnConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.StringPropertyConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.TypeConventionConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Configuration.ValueConditionConfiguration.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.AssociationInverseDiscoveryConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ColumnAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ColumnOrderingConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ColumnOrderingConventionStrict.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ComplexTypeAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ComplexTypeDiscoveryConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ConcurrencyCheckAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.Convention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.DatabaseGeneratedAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.DecimalPropertyConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.DeclaredPropertyOrderingConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ForeignKeyAssociationMultiplicityConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ForeignKeyDiscoveryConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ForeignKeyIndexConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ForeignKeyNavigationPropertyAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ForeignKeyPrimitivePropertyAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.IConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.IdKeyDiscoveryConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.IndexAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.InversePropertyAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.KeyAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.KeyDiscoveryConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.ManyToManyCascadeDeleteConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.MappingInheritedPropertiesSupportConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.MaxLengthAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.NavigationPropertyNameForeignKeyDiscoveryConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.NotMappedPropertyAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.NotMappedTypeAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.OneToManyCascadeDeleteConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.OneToOneConstraintIntroductionConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.PluralizingEntitySetNameConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.PluralizingTableNameConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.PrimaryKeyNameForeignKeyDiscoveryConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.PropertyMaxLengthConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.RequiredNavigationPropertyAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.RequiredPrimitivePropertyAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.SqlCePropertyMaxLengthConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.StoreGeneratedIdentityKeyConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.StringLengthAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.TableAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.TimestampAttributeConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.Conventions.TypeNameForeignKeyDiscoveryConvention.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ModelConfiguration.ModelValidationException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.ObservableCollectionExtensions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.QueryableExtensions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Spatial.DbGeography.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Spatial.DbGeographyWellKnownValue.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Spatial.DbGeometry.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Spatial.DbGeometryWellKnownValue.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Spatial.DbSpatialDataReader.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Spatial.DbSpatialServices.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.SqlServer.SqlAzureExecutionStrategy.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.SqlServer.SqlFunctions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.SqlServer.SqlProviderServices.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.SqlServer.SqlServerMigrationSqlGenerator.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.SqlServer.SqlSpatialFunctions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.SqlServer.SqlSpatialServices.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.SqlServer.Utilities.TaskExtensions+CultureAwaiter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.SqlServer.Utilities.TaskExtensions+CultureAwaiter`1.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.SqlServer.Utilities.TaskExtensions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Utilities.TaskExtensions+CultureAwaiter.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Utilities.TaskExtensions+CultureAwaiter`1.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Utilities.TaskExtensions.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Validation.DbEntityValidationException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Validation.DbEntityValidationResult.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Validation.DbUnexpectedValidationException.datasource" />
+    <None Include="Properties\DataSources\System.Data.Entity.Validation.DbValidationError.datasource" />
+    <None Include="Properties\DataSources\System.Linq.RecordCollectionExtension.datasource" />
+    <None Include="Properties\DataSources\System.Net.IpAddressExtensions.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
