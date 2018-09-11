@@ -276,6 +276,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.HideSelection = false;
             this.textBox6.Location = new System.Drawing.Point(521, 319);
             this.textBox6.MaxLength = 11;
             this.textBox6.Name = "textBox6";

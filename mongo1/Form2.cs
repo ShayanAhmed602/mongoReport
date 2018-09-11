@@ -177,7 +177,7 @@ namespace mongo1
             }
             catch (Exception)
             {
-
+                
                 throw;
             }
 
@@ -219,7 +219,7 @@ namespace mongo1
         {
             try
             {
-                if (textBox1.Text.Length >= 2)
+                if (textBox1.Text.Length >= 1)
                 {
 
                     var autoCompleteListCollection = new AutoCompleteStringCollection();

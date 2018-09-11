@@ -35,7 +35,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23438in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -364,7 +364,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>0.23438in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -691,7 +691,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Height>0.5in</Height>
+        <Top>0.4075in</Top>
+        <Height>0.46875in</Height>
         <Width>9in</Width>
         <Style>
           <Border>
@@ -699,12 +700,50 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value xml:space="preserve">               </Value>
+                <Style />
+              </TextRun>
+              <TextRun>
+                <Value> Booking Report</Value>
+                <Style>
+                  <FontSize>15pt</FontSize>
+                  <Color>Blue</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Left>3.26042in</Left>
+        <Height>0.33806in</Height>
+        <Width>2.30208in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>2.18875in</Height>
     <Style />
   </Body>
   <Width>9in</Width>
   <Page>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
     <TopMargin>1in</TopMargin>
